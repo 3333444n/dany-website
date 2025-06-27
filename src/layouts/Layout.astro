@@ -1,4 +1,8 @@
 ---
+import moriRegular from "../assets/fonts/PPMori-Regular.otf";
+import moriSemiBold from "../assets/fonts/PPMori-SemiBold.otf";
+import Navigation from "../components/Navigation.astro";
+
 export interface Props {
   title: string;
   description?: string;
@@ -29,18 +33,26 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href={moriRegular}
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={moriSemiBold}
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
     />
 
     <title>{title}</title>
   </head>
   <body>
     <slot />
+    <Navigation />
   </body>
 </html>
 
