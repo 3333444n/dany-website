@@ -59,3 +59,47 @@ const {
 <style is:global>
   @import "../styles/global.css";
 </style>
+
+<script>
+  import Lenis from "lenis";
+
+  // Initialize Lenis with more noticeable settings
+  const lenis = new Lenis({
+    duration: 1, // Longer duration for more noticeable effect
+    easing: (t: number) => 1 - Math.pow(1 - t, 3), // Smoother easing curve
+    wheelMultiplier: 1, // Make wheel scrolling much slower for very noticeable effect
+  } as any);
+
+  // Animation frame loop
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  // Handle anchor links with smooth scrolling
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (
+      target &&
+      target.tagName === "A" &&
+      (target as HTMLAnchorElement).getAttribute("href")?.startsWith("#")
+    ) {
+      e.preventDefault();
+      const id = (target as HTMLAnchorElement).getAttribute("href")?.slice(1);
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          lenis.scrollTo(element, {
+            offset: -100,
+            duration: 2.0,
+          });
+        }
+      }
+    }
+  });
+
+  // Make lenis available globally for debugging
+  (window as any).lenis = lenis;
+</script>
