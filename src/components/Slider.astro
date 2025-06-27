@@ -9,7 +9,7 @@ export interface Props {
 const { images } = Astro.props;
 ---
 
-<div class="slider-container overflow-x-auto">
+<div class="slider-container overflow-x-auto fade-in">
   <div class="flex gap-4 pb-2">
     {
       images.map((image) => (
@@ -27,6 +27,19 @@ const { images } = Astro.props;
 </div>
 
 <style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+
   .slider-container {
     scrollbar-width: none;
     -ms-overflow-style: none;
