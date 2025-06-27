@@ -1,8 +1,15 @@
 ---
 const currentPath = Astro.url.pathname;
-const isHomePage = currentPath === "/" || currentPath === "";
+const isHomePage =
+  currentPath === "/" ||
+  currentPath === "" ||
+  currentPath === "/karen-portfolio/" ||
+  currentPath === "/karen-portfolio";
 const isProjectsPage =
-  currentPath === "/projects" || currentPath.startsWith("/projects");
+  currentPath === "/projects" ||
+  currentPath.startsWith("/projects") ||
+  currentPath === "/karen-portfolio/projects" ||
+  currentPath.startsWith("/karen-portfolio/projects");
 
 const commonLinkClasses =
   "p-2 rounded-full hover:bg-white/10 transition-colors";
@@ -40,7 +47,7 @@ const flaskIcon = `
               <span class={activeTextClasses}>Sobre mí</span>
             </div>
             <a
-              href="/projects"
+              href={`${Astro.site}projects`}
               class={commonLinkClasses}
               aria-label="Ver proyectos"
             >
@@ -49,7 +56,11 @@ const flaskIcon = `
           </>
         ) : (
           <>
-            <a href="/" class={commonLinkClasses} aria-label="Sobre mí">
+            <a
+              href={Astro.site}
+              class={commonLinkClasses}
+              aria-label="Sobre mí"
+            >
               <Fragment set:html={flowerIcon} />
             </a>
             <div class={activeContainerClasses}>
