@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+// Sample projects data
+const projects = [
+  {
+    title: "Proyecto 1",
+    content:
+      "<p>Descripción del primer proyecto de diseño industrial. <strong>Enfoque en sostenibilidad</strong> y funcionalidad.</p>",
+    img: "/placeholder-project-1.jpg",
+    imgAlt: "Proyecto 1",
+    slug: "proyecto-1",
+  },
+  {
+    title: "Proyecto 2",
+    content:
+      "<p>Segundo proyecto destacado. <strong>Innovación en materiales</strong> y procesos de manufactura.</p>",
+    img: "/placeholder-project-2.jpg",
+    imgAlt: "Proyecto 2",
+    slug: "proyecto-2",
+  },
+  {
+    title: "Proyecto 3",
+    content:
+      "<p>Tercer proyecto de la colección. <strong>Diseño centrado en el usuario</strong> y experiencia.</p>",
+    img: "/placeholder-project-3.jpg",
+    imgAlt: "Proyecto 3",
+    slug: "proyecto-3",
+  },
+  {
+    title: "Proyecto 4",
+    content:
+      "<p>Cuarto proyecto creativo. <strong>Exploración de formas</strong> y nuevas tecnologías.</p>",
+    img: "/placeholder-project-4.jpg",
+    imgAlt: "Proyecto 4",
+    slug: "proyecto-4",
+  },
+  {
+    title: "Proyecto 5",
+    content:
+      "<p>Quinto proyecto innovador. <strong>Soluciones integrales</strong> para necesidades específicas.</p>",
+    img: "/placeholder-project-5.jpg",
+    imgAlt: "Proyecto 5",
+    slug: "proyecto-5",
+  },
+  {
+    title: "Proyecto 6",
+    content:
+      "<p>Sexto proyecto de diseño. <strong>Metodología aplicada</strong> y resultados medibles.</p>",
+    img: "/placeholder-project-6.jpg",
+    imgAlt: "Proyecto 6",
+    slug: "proyecto-6",
+  },
+];
+---
+
+<Layout title="Projects | Karen's Portfolio">
+  <Header />
+
+  <main>
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold">My Work</h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Una colección de proyectos que reflejan mi enfoque en el diseño
+            industrial y la innovación.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            projects.map((project) => (
+              <ProjectCard
+                title={project.title}
+                content={project.content}
+                img={project.img}
+                imgAlt={project.imgAlt}
+                slug={project.slug}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

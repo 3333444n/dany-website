@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Info from "../components/Info.astro";
+import Content from "../components/Content.astro";
+
+// Content for the left Info component
+const infoContent = `
+<h2>Karen Mejía.</h2>
+<h3>Diseñadora industrial multidisciplinaria</h3>
+
+<div style="margin-top: 2rem;">
+  <h4>Conecta</h4>
+  <p>Ciudad de México<br>
+  56 2565 4482</p>
+</div>
+
+<div style="margin-top: 1.5rem;">
+  <h4>Social</h4>
+  <p>ig: @bykarenmo<br>
+  karenmo.mejia@gmail.com</p>
+</div>
+`;
+
+// Content for the right Content component
+const mainContent = `
+<p><strong>Como diseñadora industrial, me impulsa la búsqueda de soluciones creativas ante cualquier desafío.</strong> A lo largo de mi formación y experiencia profesional, me he desarrollado como una <strong>diseñadora y artista multidisciplinaria</strong>, cultivando habilidades en distintas áreas del diseño que disfruto integrar en cada proyecto. <strong>Mi enfoque se basa en crear propuestas visuales con identidad, capaces de dejar una huella auténtica y significativa.</strong></p>
+
+<p>Durante mi servicio social, tuve la oportunidad de asumir diversas responsabilidades vinculadas al <strong>diseño gráfico</strong>, lo que fortaleció considerablemente mis conocimientos en esta disciplina. Esta etapa fue clave para afianzar mi experiencia en el desarrollo de contenido visual, trabajando con plataformas como Canva y herramientas profesionales de la suite de Adobe, particularmente Illustrator y Photoshop.</p>
+
+<p>Además, <strong>tengo un profundo interés en el diseño editorial y la dirección creativa</strong>, áreas en las que busco seguir creciendo, ya que me permiten explorar narrativas visuales más complejas, generar propuestas integrales con una visión estratégica y estética bien definida.</p>
+
+<p><em>Mi objetivo es seguir construyendo una trayectoria sólida que combine la sensibilidad artística con una mirada analítica, y que me permita seguir creando diseño con propósito, emoción y coherencia visual.</em></p>
+`;
+
+// Sample featured projects data
+const featuredProjects = [
+  {
+    title: "Smart Home Hub",
+    description:
+      "An intuitive control center that seamlessly integrates with modern smart home ecosystems.",
+    image: "/placeholder-project-1.jpg",
+    slug: "smart-home-hub",
+  },
+  {
+    title: "Sustainable Packaging",
+    description:
+      "Eco-friendly packaging solution that reduces waste while maintaining product integrity.",
+    image: "/placeholder-project-2.jpg",
+    slug: "sustainable-packaging",
+  },
+  {
+    title: "Ergonomic Workspace",
+    description:
+      "A modular workspace design that adapts to different work styles and environments.",
+    image: "/placeholder-project-3.jpg",
+    slug: "ergonomic-workspace",
+  },
+];
+---
+
+<Layout title="Karen Mejía - Diseñadora Industrial">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto px-4">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 min-h-[calc(100vh-160px)]"
+        >
+          <!-- Info Component - Left Side -->
+          <div class="lg:col-span-2 flex items-center">
+            <Info>
+              <div set:html={infoContent} />
+            </Info>
+          </div>
+
+          <!-- Content Component - Right Side -->
+          <div class="lg:col-span-3">
+            <Content>
+              <div>
+                <h2 class="text-3xl font-bold mb-4">Sobre mi</h2>
+                <div set:html={mainContent} />
+              </div>
+            </Content>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

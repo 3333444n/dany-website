@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables for Karen's Portfolio */
+:root {
+  --color-primary: #2B2B2B;      /* Dark charcoal */
+  --color-secondary: #666666;    /* Medium gray */
+  --color-accent: #8B7B8B;       /* Muted purple */
+  --color-neutral-dark: #2B2B2B; /* Charcoal */
+  --color-neutral-light: #F8F9FA; /* Off white */
+  --color-text-primary: #2B2B2B;
+  --color-text-secondary: #666666;
+  --color-background: #E8C5D4;    /* Pink/mauve background */
+  --color-background-alt: #DDB5C7; /* Slightly darker pink */
+}
+
+/* Custom Tailwind Components */
+@layer base {
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-neutral-dark);
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+
+  p {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+  }
+}
+
+@layer utilities {
+  /* Custom Color Classes */
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-secondary { background-color: var(--color-secondary); }
+  .bg-accent { background-color: var(--color-accent); }
+  .bg-neutral-dark { background-color: var(--color-neutral-dark); }
+  .bg-neutral-light { background-color: var(--color-neutral-light); }
+
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-accent { color: var(--color-accent); }
+  .text-neutral-dark { color: var(--color-neutral-dark); }
+
+  .border-primary { border-color: var(--color-primary); }
+  .border-secondary { border-color: var(--color-secondary); }
+  .border-accent { border-color: var(--color-accent); }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

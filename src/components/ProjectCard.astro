@@ -1,0 +1,56 @@
+---
+export interface Props {
+  content: string;
+  img: string;
+  imgAlt?: string;
+  slug?: string;
+  title?: string;
+}
+
+const { content, img, imgAlt = "", slug, title } = Astro.props;
+---
+
+<div
+  class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
+>
+  {
+    img && (
+      <div class="aspect-video bg-gray-200">
+        <img src={img} alt={imgAlt} class="w-full h-full object-cover" />
+      </div>
+    )
+  }
+
+  <div class="p-6 space-y-4">
+    {
+      title && (
+        <h3 class="text-xl font-semibold mb-2 text-neutral-dark">{title}</h3>
+      )
+    }
+    <div class="space-y-2 text-gray-600 leading-relaxed" set:html={content} />
+
+    {
+      slug && (
+        <a
+          href={`/projects/${slug}`}
+          class="inline-flex items-center font-medium text-primary transition-colors hover:text-accent"
+        >
+          Ver proyecto
+          <svg
+            class="w-4 h-4 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+</div>
