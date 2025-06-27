@@ -1,5 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+Feel free to analyze the whole codebase, especifically the @tsconfig.json and other important files such as @tailwind.config.js and @astro.config.mjs. Do not modify these files without asking first, just read them as reference.
