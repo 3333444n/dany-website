@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Info from "../components/Info.astro";
 import Content from "../components/Content.astro";
 import Slider from "../components/Slider.astro";
+import placeholder from "../assets/images/placeholder.jpg";
 
 // Content for the left Info component
 const infoContent = `
@@ -25,11 +26,11 @@ const infoContent = `
 
 // Placeholder images for sliders
 const sliderImages = [
-  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 1" },
-  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 2" },
-  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 3" },
-  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 4" },
-  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 5" },
+  { src: placeholder.src, alt: "Project image 1" },
+  { src: placeholder.src, alt: "Project image 2" },
+  { src: placeholder.src, alt: "Project image 3" },
+  { src: placeholder.src, alt: "Project image 4" },
+  { src: placeholder.src, alt: "Project image 5" },
 ];
 
 // Content for the right Content components
