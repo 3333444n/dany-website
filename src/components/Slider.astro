@@ -1,0 +1,37 @@
+---
+export interface Props {
+  images: Array<{
+    src: string;
+    alt: string;
+  }>;
+}
+
+const { images } = Astro.props;
+---
+
+<div class="slider-container overflow-x-auto">
+  <div class="flex gap-4 pb-2">
+    {
+      images.map((image) => (
+        <div class="flex-shrink-0">
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="h-120 w-auto object-cover rounded-lg"
+            loading="lazy"
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .slider-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .slider-container::-webkit-scrollbar {
+    display: none;
+  }
+</style>

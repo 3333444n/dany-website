@@ -65,10 +65,10 @@ const featuredProjects = [
     <section class="py-16 px-4">
       <div class="max-w-6xl mx-auto px-4">
         <div
-          class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 min-h-[calc(100vh-160px)]"
+          class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 min-h-[calc(100vh-160px)] lg:items-start"
         >
           <!-- Info Component - Left Side -->
-          <div class="lg:col-span-2 flex items-center">
+          <div class="lg:col-span-2 lg:sticky top-16">
             <Info>
               <div set:html={infoContent} />
             </Info>

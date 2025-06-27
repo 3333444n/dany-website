@@ -1,85 +1,163 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import Info from "../components/Info.astro";
+import Content from "../components/Content.astro";
+import Slider from "../components/Slider.astro";
 
-// Sample projects data
-const projects = [
-  {
-    title: "Proyecto 1",
-    content:
-      "<p>Descripción del primer proyecto de diseño industrial. <strong>Enfoque en sostenibilidad</strong> y funcionalidad.</p>",
-    img: "/placeholder-project-1.jpg",
-    imgAlt: "Proyecto 1",
-    slug: "proyecto-1",
-  },
-  {
-    title: "Proyecto 2",
-    content:
-      "<p>Segundo proyecto destacado. <strong>Innovación en materiales</strong> y procesos de manufactura.</p>",
-    img: "/placeholder-project-2.jpg",
-    imgAlt: "Proyecto 2",
-    slug: "proyecto-2",
-  },
-  {
-    title: "Proyecto 3",
-    content:
-      "<p>Tercer proyecto de la colección. <strong>Diseño centrado en el usuario</strong> y experiencia.</p>",
-    img: "/placeholder-project-3.jpg",
-    imgAlt: "Proyecto 3",
-    slug: "proyecto-3",
-  },
-  {
-    title: "Proyecto 4",
-    content:
-      "<p>Cuarto proyecto creativo. <strong>Exploración de formas</strong> y nuevas tecnologías.</p>",
-    img: "/placeholder-project-4.jpg",
-    imgAlt: "Proyecto 4",
-    slug: "proyecto-4",
-  },
-  {
-    title: "Proyecto 5",
-    content:
-      "<p>Quinto proyecto innovador. <strong>Soluciones integrales</strong> para necesidades específicas.</p>",
-    img: "/placeholder-project-5.jpg",
-    imgAlt: "Proyecto 5",
-    slug: "proyecto-5",
-  },
-  {
-    title: "Proyecto 6",
-    content:
-      "<p>Sexto proyecto de diseño. <strong>Metodología aplicada</strong> y resultados medibles.</p>",
-    img: "/placeholder-project-6.jpg",
-    imgAlt: "Proyecto 6",
-    slug: "proyecto-6",
-  },
+// Content for the left Info component
+const infoContent = `
+<h2>Karen Mejía.</h2>
+<h3>Diseñadora industrial multidisciplinaria</h3>
+
+<div style="margin-top: 2rem;">
+  <h4>Conecta</h4>
+  <p>Ciudad de México<br>
+  56 2565 4482</p>
+</div>
+
+<div style="margin-top: 1.5rem;">
+  <h4>Social</h4>
+  <p>ig: @bykarenmo<br>
+  karenmo.mejia@gmail.com</p>
+</div>
+`;
+
+// Placeholder images for sliders
+const sliderImages = [
+  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 1" },
+  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 2" },
+  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 3" },
+  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 4" },
+  { src: "/src/assets/images/placeholder.jpg", alt: "Project image 5" },
 ];
+
+// Content for the right Content components
+const project1Content = `
+  <h2 class="text-4xl font-bold">CICLO 27 Identidad visual</h2>
+  <h3 class="text-xl font-semibold mt-1 mb-6">¿Quiénes somos nosotrxs para opinar?</h3>
+  <p>Durante mi estancia en la Unidad de Vinculación Artística (UVA), participé en la elaboración de la <strong>identidad visual del Ciclo 27, ¿Quienes somos nosotrxs para opinar?</strong>, el cual incluyó gran variedad de <strong>ilustraciones que representaran los distintos talleres</strong> que se ofrecen en la UVA, elegir la <strong>paleta de colores y las tipografías</strong> que se usaron en los distintos carteles institucionales, colaborando también en la <strong>adaptación del diseño a los lineamientos gráficos requeridos</strong>.</p>
+  <p>Parte de mi labor consistió en hacer ilustraciones para los 80 talleres que se presentaron ese ciclo y organizar los elementos obligatorios que, por norma institucional, debían incluirse en cada pieza.</p>
+  <p>Todas las versiones desarrolladas pasaron por diversos filtros de revisión antes de su publicación o impresión, lo que me permitió entender a fondo los procesos de validación y coherencia visual dentro de una institución cultural.</p>
+  <div class="mt-6">
+    <h4 class="font-semibold">INFO:</h4>
+    <p><strong>Cliente:</strong> Unidad de Vinculación Artística (UVA)<br>
+    <strong>Fecha:</strong> Febrero 2024<br>
+    <strong>Localización:</strong> Ciudad de México, Tlatelolco.</p>
+  </div>
+`;
+
+const project2Content = `
+  <h2 class="text-4xl font-bold">CICLO 27 Animaciones</h2>
+  <h3 class="text-xl font-semibold mt-1 mb-6">Quienes somos nosotrxs para opinar?</h3>
+  <p>Dentro de mis responsabilidades, desarrollé <strong>piezas ilustradas para anunciar vacaciones, días festivos y actividades especiales</strong>. Estas piezas requerían un <strong>enfoque visual dinámico y un toque de humor</strong>, adaptado tanto a las tendencias del momento como al estilo y tono característico del equipo de coordinación.</p>
+  <p>Cada animación era pensada no solo para informar, sino también para <strong>conectar con la comunidad de forma cercana, ligera y creativa</strong>, integrando ilustraciones originales que reflejaran la identidad de la institución.</p>
+`;
+
+const project3Content = `
+  <h2 class="text-4xl font-bold">CICLO 28 Identidad visual</h2>
+  <h3 class="text-xl font-semibold mt-1 mb-6">Tiempo y Fuera: IAestoyarte</h3>
+  <p>Con el inicio de un nuevo ciclo, tuve que diseñar una nueva <strong>identidad visual</strong>, creando <strong>animaciones, personajes y paletas de colores</strong>, así como elegir las <strong>tipografías</strong>.</p>
+  <p>Una de las tareas más importantes era el <strong>diseño de carteles informativos</strong> que dieran a conocer la oferta completa de talleres de la UVA, que en cada periodo incluía más de 80 actividades.</p>
+  <p>Estos carteles debían ser <strong>visualmente atractivos</strong> y contener la información necesaria para captar la atención de posibles estudiantes, facilitando su comprensión sin perder claridad ni equilibrio gráfico.</p>
+  <p>El reto consistía en <strong>organizar una gran cantidad de datos de manera ordenada y funcional</strong>, respetando los lineamientos del manual de identidad visual y manteniendo una estética coherente con el lenguaje institucional.</p>
+`;
+
+const project4Content = `
+  <h2 class="text-4xl font-bold">CICLO 28 Illustración</h2>
+  <h3 class="text-xl font-semibold mt-1 mb-6">Jugo de UVA</h3>
+  <p>Como parte de las campañas promocionales, realicé una <strong>ilustración original</strong> para anunciar una dinámica especial de talleres 2x1.</p>
+  <p>Esta pieza fue creada en su totalidad en Adobe Illustrator, cuidando cada detalle desde la conceptualización hasta la composición final.</p>
+  <p>El objetivo era <strong>generar una imagen llamativa, alineada con la identidad visual de la institución</strong>, que comunicara de manera clara y atractiva la promoción, incentivando la participación del público en la oferta cultural de la UVA.</p>
+`;
+
+const project5Content = `
+  <h2 class="text-4xl font-bold">Cromo Sesamo, board game.</h2>
+  <h3 class="text-xl font-semibold mt-1 mb-6">Revista estudiantil, sobre un juego de mesa inspirado en plaza sésamo.</h3>
+  <p>Desarrollé un <strong>juego de mesa</strong> inspirado en el universo visual y narrativo de Plaza Sésamo, recreando el diseño de personajes, la propuesta gráfica y los elementos lúdicos del juego.</p>
+  <p>Este proyecto incluyó también la elaboración de una <strong>revista explicativa dirigida a jóvenes universitarios</strong>, que documenta todo el proceso creativo y de producción, desde la conceptualización inicial hasta las decisiones gráficas finales.</p>
+  <p>Me encargué del <strong>diseño editorial completo</strong> de esta publicación, pensada especialmente para su distribución en <strong>medios impresos</strong>, cuidando tanto la claridad en la narrativa como la coherencia visual en cada página.</p>
+  <div class="mt-6">
+    <h4 class="font-semibold">INFO:</h4>
+    <p><strong>Cliente:</strong> Universidad Tecnológica de México<br>
+    <strong>Fecha:</strong> Abril 2024<br>
+    <strong>Localización:</strong> Cuitláhuac.</p>
+  </div>
+`;
+
+const project6Content = `
+  <h2 class="text-4xl font-bold">Dirección creativa</h2>
+  <h3 class="text-xl font-semibold mt-1 mb-6">Coleccion primavera de By Karen Mo</h3>
+  <p>Para la colección de primavera de mi marca de joyería, llevé a cabo toda la <strong>dirección creativa</strong> del proyecto.</p>
+  <p>Diseñé cada una de las piezas de la colección, desarrollé un nuevo <strong>logotipo</strong> que reflejara la evolución de la marca y <strong>conceptualicé tanto la estética como el estilo visual de la campaña</strong>. También <strong>propuse ideas clave para el photoshoot</strong>, incluyendo composiciones, paleta de color y poses, asegurando una narrativa visual coherente.</p>
+  <p>Todo este trabajo se consolidó en la <strong>identidad de marca</strong> que actualmente se refleja en el feed de Instagram, creando una <strong>experiencia visual cuidada, auténtica y alineada</strong> con los valores de la marca.</p>
+  <div class="mt-6">
+    <h4 class="font-semibold">INFO:</h4>
+    <p><strong>Cliente:</strong> By Karen Mo<br>
+    <strong>Fecha:</strong> Febrero 2025<br>
+    <strong>Localización:</strong> Ciudad de México</p>
+  </div>
+`;
 ---
 
-<Layout title="Projects | Karen's Portfolio">
+<Layout title="Proyectos | Karen Mejía">
   <main>
     <section class="py-16 px-4">
       <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <h1 class="text-4xl font-bold">My Work</h1>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Una colección de proyectos que reflejan mi enfoque en el diseño
-            industrial y la innovación.
-          </p>
-        </div>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 lg:items-start"
+        >
+          <!-- Info Component - Left Side -->
+          <div class="lg:col-span-2 lg:sticky top-16">
+            <Info>
+              <div set:html={infoContent} />
+            </Info>
+          </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {
-            projects.map((project) => (
-              <ProjectCard
-                title={project.title}
-                content={project.content}
-                img={project.img}
-                imgAlt={project.imgAlt}
-                slug={project.slug}
-              />
-            ))
-          }
+          <!-- Content Component - Right Side -->
+          <div class="lg:col-span-3 space-y-16">
+            <div class="space-y-8">
+              <Content>
+                <div set:html={project1Content} />
+              </Content>
+              <Slider images={sliderImages} />
+            </div>
+
+            <div class="space-y-8">
+              <Content>
+                <div set:html={project2Content} />
+              </Content>
+              <Slider images={sliderImages} />
+            </div>
+
+            <div class="space-y-8">
+              <Content>
+                <div set:html={project3Content} />
+              </Content>
+              <Slider images={sliderImages} />
+            </div>
+
+            <div class="space-y-8">
+              <Content>
+                <div set:html={project4Content} />
+              </Content>
+              <Slider images={sliderImages} />
+            </div>
+
+            <div class="space-y-8">
+              <Content>
+                <div set:html={project5Content} />
+              </Content>
+              <Slider images={sliderImages} />
+            </div>
+
+            <div class="space-y-8">
+              <Content>
+                <div set:html={project6Content} />
+              </Content>
+              <Slider images={sliderImages} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
