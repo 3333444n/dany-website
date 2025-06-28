@@ -4,7 +4,18 @@ import Footer from "../components/Footer.astro";
 import Info from "../components/Info.astro";
 import Content from "../components/Content.astro";
 import Slider from "../components/Slider.astro";
-import placeholder from "../assets/images/placeholder.jpg";
+import identidad1 from "../assets/images/identidad1.png";
+import animaciones1 from "../assets/images/animaciones1.jpeg";
+import animaciones2 from "../assets/images/animaciones2.jpeg";
+import iaestoyharte1 from "../assets/images/iaestoyharte1.JPG";
+import jugouva1 from "../assets/images/jugouva1.jpeg";
+import sesamo1 from "../assets/images/sesamo1.png";
+import sesamo2 from "../assets/images/sesamo2.png";
+import sesamo3 from "../assets/images/sesamo3.png";
+import sesamo4 from "../assets/images/sesamo4.png";
+import primavera1 from "../assets/images/primavera1.JPG";
+import primavera2 from "../assets/images/primavera2.JPG";
+import primavera3 from "../assets/images/primavera3.JPG";
 
 // Content for the left Info component
 const infoContent = `
@@ -24,13 +35,35 @@ const infoContent = `
 </div>
 `;
 
-// Placeholder images for sliders
-const sliderImages = [
-  { src: placeholder.src, alt: "Project image 1" },
-  { src: placeholder.src, alt: "Project image 2" },
-  { src: placeholder.src, alt: "Project image 3" },
-  { src: placeholder.src, alt: "Project image 4" },
-  { src: placeholder.src, alt: "Project image 5" },
+// Slider images for each project
+const project1Images = [
+  { src: identidad1.src, alt: "Identidad Visual" },
+];
+
+const project2Images = [
+  { src: animaciones1.src, alt: "Animaciones" },
+  { src: animaciones2.src, alt: "Animaciones" },
+];
+
+const project3Images = [
+  { src: iaestoyharte1.src, alt: "IA Estoy Harte" },
+];
+
+const project4Images = [
+  { src: jugouva1.src, alt: "Jugo UVA" },
+];
+
+const project5Images = [
+  { src: sesamo1.src, alt: "Cromo Sesamo" },
+  { src: sesamo2.src, alt: "Cromo Sesamo" },
+  { src: sesamo3.src, alt: "Cromo Sesamo" },
+  { src: sesamo4.src, alt: "Cromo Sesamo" },
+];
+
+const project6Images = [
+  { src: primavera1.src, alt: "Primavera" },
+  { src: primavera2.src, alt: "Primavera" },
+  { src: primavera3.src, alt: "Primavera" },
 ];
 
 // Content for the right Content components
@@ -121,7 +154,7 @@ const project6Content = `
               <Content>
                 <div set:html={project1Content} />
               </Content>
-              <Slider images={sliderImages} />
+              <Slider images={project1Images} />
             </div>
 
             <!-- Project Divider -->
@@ -131,7 +164,7 @@ const project6Content = `
               <Content>
                 <div set:html={project2Content} />
               </Content>
-              <Slider images={sliderImages} />
+              <Slider images={project2Images} />
             </div>
 
             <!-- Project Divider -->
@@ -141,7 +174,7 @@ const project6Content = `
               <Content>
                 <div set:html={project3Content} />
               </Content>
-              <Slider images={sliderImages} />
+              <Slider images={project3Images} />
             </div>
 
             <!-- Project Divider -->
@@ -151,7 +184,7 @@ const project6Content = `
               <Content>
                 <div set:html={project4Content} />
               </Content>
-              <Slider images={sliderImages} />
+              <Slider images={project4Images} />
             </div>
 
             <!-- Project Divider -->
@@ -161,7 +194,7 @@ const project6Content = `
               <Content>
                 <div set:html={project5Content} />
               </Content>
-              <Slider images={sliderImages} />
+              <Slider images={project5Images} />
             </div>
 
             <!-- Project Divider -->
@@ -171,7 +204,7 @@ const project6Content = `
               <Content>
                 <div set:html={project6Content} />
               </Content>
-              <Slider images={sliderImages} />
+              <Slider images={project6Images} />
             </div>
           </div>
         </div>
