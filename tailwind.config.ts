@@ -13,7 +13,7 @@ export default {
         'neutral-dark': '#2B2B2B',
         'neutral-light': '#F8F9FA',
         'text-primary': '#2B2B2B',
-        'text-secondary': '#666666',
+        'text-secondary': '#000000',
         background: '#634a60',
         'background-alt': '#DDB5C7',
       },
