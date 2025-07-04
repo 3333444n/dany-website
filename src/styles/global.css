@@ -51,15 +51,15 @@
 
 /* Custom CSS Variables for Karen's Portfolio */
 :root {
-  --color-primary: #2B2B2B;      /* Dark charcoal */
-  --color-secondary: #666666;    /* Medium gray */
-  --color-accent: #8B7B8B;       /* Muted purple */
-  --color-neutral-dark: #2B2B2B; /* Charcoal */
-  --color-neutral-light: #F8F9FA; /* Off white */
-  --color-text-primary: #2B2B2B;
+  --color-primary: #1a1a1a;      /* Very dark grey/black */
+  --color-secondary: #666666;    /* Medium grey */
+  --color-accent: #999999;       /* Light grey */
+  --color-neutral-dark: #1a1a1a; /* Very dark grey/black */
+  --color-neutral-light: #f8f9fa; /* Off white */
+  --color-text-primary: #1a1a1a;
   --color-text-secondary: #666666;
-  --color-background: #E8C5D4;    /* Pink/mauve background */
-  --color-background-alt: #DDB5C7; /* Slightly darker pink */
+  --color-background: #ffffff;    /* Pure white background */
+  --color-background-alt: #f5f5f5; /* Light grey background */
 }
 
 /* Custom Tailwind Components */
