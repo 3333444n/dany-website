@@ -10,15 +10,20 @@ export interface Props {
 
 const {
   title,
-  description = "Karen's Industrial Design Portfolio - Showcasing innovative design solutions and creative projects.",
+  description = "Daniel Ortiz - Estudiante de Comunicación y Periodismo en CDMX. Portafolio de diseño gráfico, fotografía y proyectos creativos. Buscando oportunidades laborales en comunicación digital.",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Daniel Ortiz, comunicación, periodismo, diseño gráfico, fotografía, CDMX, estudiante, portafolio, Adobe, creatividad"
+    />
+    <meta name="author" content="Daniel Alejandro Peregrino Ortiz" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
